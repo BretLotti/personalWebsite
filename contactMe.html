@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/homeCSS.css">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <h1>Bret Lotti: Web & Software Developer</h1>
+        <nav>
+          <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="aboutMe.html">About</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="contactMe.html">Contact</a></li>
+          </ul>
+        </nav>
+    </header>
+
+    <h1>Contact Me</h1>
+    <form action="#" method="post" name = "myForm" onsubmit = "return validateForm()">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
+
+        <input type="submit" name = "submit" value="Send">
+    </form>
+
+<footer>
+    <p>&copy; 2023 Bret Lotti. All rights reserved.</p>
+</footer>
+
+<!-- JavaScript for validating form -->
+<script>
+    function validateForm() {
+        var name = document.forms["myForm"]["name"].value;
+        var email = document.forms["myForm"]["email"].value;
+        var message = document.forms["myForm"]["message"].value;
+        if (name == "" || email == "" || message == "") {
+            alert("Please fill out all fields");
+            return false;
+        }
+    }
+</script>
+
+<!-- PHP for recieving emails -->
+<?php
+if(isset($_POST['submit'])) {
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $to = "bretj.lotti@gmail.com";
+    $subject = "New Message From Website Contact Form";
+    $body = "Name: $name\nEmail: $email\nMessage: $message";
+    if(mail($to, $subject, $body)) {
+        echo "<p>Thank you for reaching out, $name! I'll get back to you as soon as possible.</p>";
+    } else {
+        echo "<p>There was an error sending your message. Please try again later.</p>";
+    }
+}
+?>
+    
+</body>
+</html>
