@@ -9,6 +9,7 @@
     <link rel="icon" type="image/x-icon" href="images/smallme.png">
 </head>
 <body>
+    <div class="wrapper">
     <header>
         <h1>Bret Lotti: Web & Software Developer</h1>
         <nav>
@@ -20,6 +21,8 @@
           </ul>
         </nav>
     </header>
+
+    <div class="content">
 
     <h1>Contact Me</h1>
     <form action="#" method="post" name = "myForm" onsubmit = "return validateForm()">
@@ -35,6 +38,7 @@
 
         <input type="submit" name = "submit" value="Send">
     </form>
+</div>
 
 <footer>
     <p>&copy; 2023 Bret Lotti. All rights reserved.</p>
@@ -51,6 +55,7 @@
             return false;
         }
     }
+    
 </script>
 
 <!-- PHP for recieving emails -->
@@ -69,6 +74,6 @@ if(isset($_POST['submit'])) {
     }
 }
 ?> -->
-    
+</div>
 </body>
 </html>
